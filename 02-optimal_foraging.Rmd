@@ -36,7 +36,7 @@ Another avenue of inquiry concerns *what* animals should eat. For instance, shou
 
 ## A prey model
 
-*...in which a forager asks, "should I eat this?"*^[whether "I" is a sugar maple tree or a human, most of us do not make this decision conciously...] 
+*...in which a forager asks, "should I eat this?"*^[whether "I" is a sugar maple tree or a human, most of us do not make this decision consciously...] 
 
 Let's start where this field started, with a prey-centered model [@MacArthur1966; @Emlen1966]. 
 
@@ -144,7 +144,7 @@ In what follows, we rely on @Charnov1976b, who applies *the marginal-value theor
 
 Let's assume the simplest of all patch models: one patch type, all patches are the same, and they are distributed randomly in the habitat. Assume also that a forager uses time to travel between patches (travel time, $t_t$) and time searching within a patch (residence time, $t_r$). A forager encounters patches at random, with a rate of $\lambda$, and as such, would have a mean time to next encounter of $1/\lambda$. 
 
-The patch is characterisized by its *gain function* $g(t_r)$ (Fig. \@ref(fig:gain)) which is the expected^["expected" value of a variable is the mean of that variable, because that is what we expect given the absence of other knowledge]
+The patch is characterized by its *gain function* $g(t_r)$ (Fig. \@ref(fig:gain)) which is the expected^["expected" value of a variable is the mean of that variable, because that is what we expect given the absence of other knowledge]
 *cumulative net energy gained*, given time $t_r$ spent in the patch. The gain function is a cumulative total net amount. We can imagine different types of gain functions.
 ```{r gain, echo=FALSE, fig.cap="Net energy gain as a function of patch residence time may take different forms. Net energy gain increases through time but slows (decelerates) as a greater fraction of the resources in the patch are consumed. The top line (solid) assumes that there are diminishing returns as a patch is depleted, but the forager continues to find resources in excess of metabolic losses. The lower line (dashed) represents the net energy gain that could arise as a patch is depleted more fully and the costs continue unabated.", out.width='75%'}
 eq1 <- function(tr) {.7 * tr/(.1+tr)}
@@ -180,7 +180,7 @@ where $t_t + t_r$ is the total time from leaving one patch, traveling to the nex
 
 Intuitively, we can imagine that the long term average rate of energy gain $R$ is unimodal (hump-shaped) in the following scenario (Fig. \@ref(fig:gain)). Upon encountering a patch the forager has no resources and thus $R$ is actually negative due to the costs of traveling to the new patch. As $t_r$ passes and and the forager gains energy ($g(t_r)$ increases), $R$ will increase and become positive. An assumption of the theory (and reality) is that the gain function, $g(t_r)$, decelerates--the rate of energy intake declines as the patch is depleted. With increasing time in the patch and lower rate of energy intake, $R$ starts to decline. 
 
-When $t_r$ is too short, $R$ is not yet maximizes. When $t_r$ is too long, $R$ begins to decline. Because $R$ is hump-shaped, we can use calculus to find its maximum. This will occur when its slope is zero, and the slope of a function, $F$, is its derivative, $F^\prime$. If we asssume that travel time is constant, then we can take the partial derivative of $R$ with respect to just the residence time, $t_r$, $\delta R / \delta t_r$. First, recall the product rule of differentiation: 
+When $t_r$ is too short, $R$ is not yet maximizes. When $t_r$ is too long, $R$ begins to decline. Because $R$ is hump-shaped, we can use calculus to find its maximum. This will occur when its slope is zero, and the slope of a function, $F$, is its derivative, $F^\prime$. If we assume that travel time is constant, then we can take the partial derivative of $R$ with respect to just the residence time, $t_r$, $\delta R / \delta t_r$. First, recall the product rule of differentiation: 
 $$F(x) = g(x)f(x)\quad ; \quad F^\prime(x) =f^\prime(x)g(x) +  f(x)g^\prime(x)$$
 With that we can find the necessary derivative.
 $$\frac{\delta R}{\delta t_r} = - \frac{1}{(t_t+t_r)^2} g(t_r) + \frac{1}{t_t+t_r}g^\prime(t_r)= g^\prime(t_r) - \frac{g(t_r)}{t_t+t_r}=0$$
@@ -223,7 +223,7 @@ optimal.forager <- function(
   e = c(2, 1), # energy content of the prey types
   h = c(.5, .5), # handling times
   r = c(.5, .5), # relative abundance of prey types: sum(r) = 1
-  lambda = 0.4, # overal encounter rate, for all prey combined
+  lambda = 0.4, # overall encounter rate, for all prey combined
   p = c(1,1), # prob. of attack if encountered
   cs = 0.4, # cost of searching per unit time
   Total = 10 # limit to foraging time
